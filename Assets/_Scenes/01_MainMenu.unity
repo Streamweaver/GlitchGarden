@@ -549,7 +549,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1085511726}
-        m_MethodName: LoadNextLevel
+        m_MethodName: QuitRequest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -9,8 +9,11 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void LoadNextLevel() {
-
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+		if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene ().buildIndex + 1) {
+			SceneManager.LoadScene ("01a_Win");
+		} else {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+		}
 	}
 
 	public void QuitRequest(){
@@ -22,5 +25,5 @@ public class LevelManager : MonoBehaviour {
 		yield return new WaitForSeconds (delay);
 		SceneManager.LoadScene (name);
 	}
-
+		
 }

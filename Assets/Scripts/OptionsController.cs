@@ -4,14 +4,19 @@ using System.Collections;
 
 public class OptionsController : MonoBehaviour {
 
-	public Slider volumeSlider;
-	public Slider difficultySlider;
-	public LevelManager levelManager;
+	private Slider volumeSlider;
+	private Slider difficultySlider;
+	private LevelManager levelManager;
 	private MusicManager musicManager;
 
 	// Use this for initialization
 	void Start () {
+		// Find components in scene
 		musicManager = GameObject.FindObjectOfType<MusicManager> ();
+		volumeSlider = GameObject.Find ("VolumeSlider").GetComponent<Slider> ();
+		difficultySlider = GameObject.Find ("DifficultySlider").GetComponent<Slider> ();
+		levelManager = GameObject.Find ("LevelManager").GetComponent<LevelManager> ();
+		// Set values
 		volumeSlider.value = PlayerPrefManager.GetMasterVolume ();
 		difficultySlider.value = PlayerPrefManager.GetDifficulty ();
 	}
@@ -30,7 +35,7 @@ public class OptionsController : MonoBehaviour {
 		// Save prefs and return.
 		PlayerPrefManager.SetMasterVolume (volumeSlider.value);
 		PlayerPrefManager.SetDifficulty ((int)difficultySlider.value);
-		levelManager.LoadLevel ("01_MainMenu");
+		levelManager.LoadLevel (Levels.MAIN);
 	}
 
 }

@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour {
 
 	public void LoadNextLevel() {
 		if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene ().buildIndex + 1) {
-			SceneManager.LoadScene ("01a_Win");
+			SceneManager.LoadScene (Levels.WIN);
 		} else {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 		}
